@@ -59,8 +59,6 @@
             <span class="carousel-control-next-icon"></span>
         </button>
     </div>
-
-    <h3>{{ special_offers }}</h3>
     
     <!-- Tabla de ofertas -->
     <div class="container my-4">
@@ -74,16 +72,13 @@
                 </tr>
             </thead>
             <tbody>
+                {% for offer in special_offers %}
                 <tr>
-                    <td><img src="https://placehold.co/100" alt="Producto 1"></td>
-                    <td>Producto 1</td>
-                    <td>$10.99</td>
+                    <td style="width: 120px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/PS2-Versions.jpg/677px-PS2-Versions.jpg" width="100px" alt="Producto 1"></td>
+                    <td>{{ offer.name }}</td>
+                    <td>${{ offer.cost }}</td>
                 </tr>
-                <tr>
-                    <td><img src="https://placehold.co/100" alt="Producto 2"></td>
-                    <td>Producto 2</td>
-                    <td>$20.99</td>
-                </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
@@ -92,19 +87,20 @@
     <div class="container my-4 justify-content-center">
         <h2 class="text-center">Productos Destacados</h2>
         <div class="row">
+            {% for offer in special_offers %}
             <div class="col-12 col-md-4 col-lg-3 mb-4">
                 <div class="card">
-                    <img src="https://placehold.co/300" class="card-img-top" alt="Producto">
+                    <img src="{% static 'shopApp/img/Nintendo-switch.png' %}" class="card-img-top" alt="Producto">
                     <div class="card-body">
-                        <h5 class="card-title">Producto</h5>
-                        <p class="card-text">$15.99</p>
+                        <h5 class="card-title">{{ offer.name }}</h5>
+                        <p class="card-text">${{ offer.cost }}</p>
                         <button class="btn w-100">
                             Comprar
                          </button>
                     </div>
                 </div>
             </div>
-            
+            {% endfor %}
         </div>
     </div>
     
@@ -115,6 +111,5 @@
         <a href="#" class="text-light mx-2"><i class="fab fa-twitter"></i></a>
         <a href="#" class="text-light mx-2"><i class="fab fa-instagram"></i></a>
     </footer>
-    
 </body>
 </html>

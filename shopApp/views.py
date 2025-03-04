@@ -27,6 +27,10 @@ def index(request):
                 'name' : 'Peluche de Batman tamaño real',
                 'cost' : 15600.00
             },
+            {
+                'name' : 'Otra cosa',
+                'cost' : 120.00
+            },
         ],
     }
     return render(request, 'shopApp/index.html', context=my_context)
