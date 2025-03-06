@@ -75,8 +75,8 @@
                 {% for offer in special_offers %}
                 <tr>
                     <td style="width: 120px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/PS2-Versions.jpg/677px-PS2-Versions.jpg" width="100px" alt="Producto 1"></td>
-                    <td>{{ offer.name }}</td>
-                    <td>${{ offer.cost }}</td>
+                    <td>{{ offer.product_name }}</td>
+                    <td>${{ offer.product_full_cost }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -92,8 +92,15 @@
                 <div class="card">
                     <img src="{% static 'shopApp/img/Nintendo-switch.png' %}" class="card-img-top" alt="Producto">
                     <div class="card-body">
-                        <h5 class="card-title">{{ offer.name }}</h5>
-                        <p class="card-text">${{ offer.cost }}</p>
+                        <h5 class="card-title">{{ offer.product_name }}</h5>
+                        <p class="card-text">
+                            {% if offer.product_is_offer %}
+                                <del style="color: gray;">${{ offer.product_full_cost }}</del> 
+                                <b>${{offer.product_offer_cost}}</b>
+                            {% else %}
+                                <b>${{ offer.product_full_cost }}</b>
+                            {% endif %}
+                        </p>
                         <button class="btn w-100">
                             Comprar
                          </button>

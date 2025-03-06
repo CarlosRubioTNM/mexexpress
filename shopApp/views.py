@@ -1,12 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from shopApp.models import Product
 
 # Create your views here.
 def index(request):
+    product_list = Product.objects.all()
     my_context = {
         'user' : 'Carlos',
         'message' : 'Largo de aquí!',
-        'special_offers' : [
+        'special_offers' : product_list,
+        'special_offers_2' : [
             {
                 'name' : 'Mascarilla hidratante de sábila',
                 'cost' : 14.00
