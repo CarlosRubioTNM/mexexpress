@@ -5,10 +5,12 @@ from shopApp.models import Product
 # Create your views here.
 def index(request):
     product_list = Product.objects.all()
+    special_offers = Product.objects.filter(product_is_offer=True)
     my_context = {
         'user' : 'Carlos',
         'message' : 'Largo de aquí!',
-        'special_offers' : product_list,
+        'special_offers' : special_offers,
+        'product_list' : product_list,
         'special_offers_2' : [
             {
                 'name' : 'Mascarilla hidratante de sábila',
