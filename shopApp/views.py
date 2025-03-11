@@ -40,3 +40,6 @@ def index(request):
     }
     return render(request, 'shopApp/index.html', context=my_context)
     #return HttpResponse("Hola mundo desde Django!")
+
+def about(request):
+    return render(request, 'shopApp/about.html')
