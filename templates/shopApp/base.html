@@ -25,6 +25,7 @@
                     <button class="btn btn-outline-light text-light" type="submit">Buscar</button>
                 </form>
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <a class="btn btn-link ms-3 text-light" href="{% url 'about' %}">Acerca de</a>
                     <button class="btn btn-link ms-3 text-light">
                         {% if user == "guest" %}
                             Iniciar sesión

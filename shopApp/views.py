@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from shopApp.models import Product
+from shopApp.models import Product, Contact
 
 # Create your views here.
 def index(request):
@@ -42,4 +42,5 @@ def index(request):
     #return HttpResponse("Hola mundo desde Django!")
 
 def about(request):
-    return render(request, 'shopApp/about.html')
+    contact_list = Contact.objects.filter(contact_is_active=True).order_by("contact_full_name")
+    return render(request, 'shopApp/about.html', context={'contacts' : contact_list})
