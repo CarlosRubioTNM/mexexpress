@@ -127,7 +127,9 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [STATIC_DIR,]
 
-
+#Definir hacia dónde redirige la pantalla de login y logout
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 
 # Default primary key field type
